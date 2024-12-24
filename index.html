@@ -1,0 +1,106 @@
+<html>
+<head>
+    <title>Form Page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #808080;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        .background-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.2;
+            z-index: -1;
+        }
+        .blinking-text {
+            font-size: 24px;
+            font-weight: bold;
+            font-style: italic;
+            color: white;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .input-box {
+            margin: 10px 0;
+        }
+        .input-box input {
+            width: 300px;
+            padding: 10px;
+            border: 2px solid #0000FF;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000000;
+        }
+        .submit-button {
+            margin-top: 20px;
+        }
+        .submit-button button {
+            background-color: #000000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .submit-button button i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img alt="Background GP logo" class="background-image" height="500" src="https://placehold.co/500x500" width="500"/>
+        <div class="blinking-text">
+           BUG WA BY WarzzXD
+        </div>
+        <div class="input-box">
+            <input id="senderNumber" placeholder="MASUKAN NOMOR BUAT KIRIM..." type="text"/>
+        </div>
+        <div class="input-box">
+            <input id="targetNumber" placeholder="MASUKAN NOMOR TARGET..." type="text"/>
+        </div>
+        <div class="submit-button">
+            <button onclick="sendText()">
+                <i class="fas fa-arrow-right"></i>
+                KIRIM
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function sendText() {
+            const senderNumber = document.getElementById('senderNumber').value;
+            const targetNumber = document.getElementById('targetNumber').value;
+            const message = "hallo sayng kontol";
+            const largeFile = "file_berukuran_besar.zip"; // Placeholder for a large file
+
+            if (senderNumber && targetNumber) {
+                const whatsappUrl = `https://web.whatsapp.com/send?phone=${targetNumber}&text=${encodeURIComponent(message)}&source=&data=&attachment=${largeFile}`;
+                window.open(whatsappUrl, '_blank');
+            } else {
+                alert('Harap masukkan kedua nomor.');
+            }
+        }
+    </script>
+</body>
+</html>
